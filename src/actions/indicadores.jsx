@@ -7,7 +7,6 @@ export const getExchanges = () => async (dispatch) =>{
     axios
         .get(endPoint)
         .then(resp => {
-            console.log('result', resp.data)
             dispatch(setIndicadores(resp.data))
         })
         .catch(error => {
