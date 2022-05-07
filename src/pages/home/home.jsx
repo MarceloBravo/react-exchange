@@ -1,31 +1,33 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { getExchanges } from '../../actions/indicadores'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux' 
+import { HomeContent } from './content'
+
 
 export const HomeComponent = () => {
   const dispatch = useDispatch()
+  const state = useSelector(store => store.bitcoin.data )
+  const [ datos, setDatos ] = useState(null)
 
     useEffect(() => {
       dispatch(getExchanges())
     },[dispatch])
 
-    return (
-        <div>
-            <header className="App-header">
-            
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
 
-          </header>
-        </div>
+    useEffect(() => {
+      let arrDatos = []
+        Object.keys(state).forEach(k => {
+          if(!['fecha','valor','autor','version'].includes(k)){
+            arrDatos.push(state[k])
+          }
+        })
+        console.log('ARR DATOS',arrDatos)
+        setDatos(arrDatos)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[state])
+
+
+    return (
+      <HomeContent datos={datos}/>
     )
 }

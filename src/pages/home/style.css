@@ -1,0 +1,15 @@
+.container-div{
+    background: #282c34;
+}
+
+.div-content{
+    width: 99%;
+}
+
+.row{
+    justify-content: center;
+}
+
+.card{
+    margin: 10px;
+}
