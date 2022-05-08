@@ -22,7 +22,6 @@ export const getIndicatorData = indicador => async (dispatch) => {
     axios
         .get(endPoint + indicador)
         .then(resp => {
-            console.log('ÚLTIMO MES', indicador, resp.data)
             dispatch(setIndicatorDetails(resp.data))          
         })
         .catch(error => {
@@ -41,7 +40,6 @@ export const getHistoryData = (indicador, anioDesde, anioHasta) => async (dispat
         let valorHoy = await obtenerValorHoy(indicador, anioHasta)
         if(valorHoy)result.push(valorHoy)
         
-        console.log('HISTÓRICO',indicador, result)
         dispatch(setHistoryData(result))
     }catch(error){
         console.log('getHistoryData',error)

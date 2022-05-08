@@ -4,7 +4,9 @@ import './style.css'
 
 export const SpinnerComponent = (props) => {
     const { mensaje, cantidadSpinners, color, className } = props
+    // eslint-disable-next-line
     const [ fontColor, setFontColor ] = useState(() => color ? color : 'white')
+    // eslint-disable-next-line
     const [ mostrados, setMostrados ] = useState(() =>{
         let limit = parseInt(cantidadSpinners ? (cantidadSpinners > 5 ? 5 : cantidadSpinners): 1)
         return (new Array(limit)).fill(null)

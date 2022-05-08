@@ -36,7 +36,7 @@ export const HistoryContent = (props) => {
           <div className="div-content">
                 <h1>{state.nombre}</h1>
                 <h3>Datos últimos 20 años ({ fechaDesde } - { fechaHasta })</h3>
-                <p>Obs. El grafico puede tardar en mostrarse</p>
+                <p>Obs. El grafico puede tardar en actualizarse</p>
                 <div className='row'>
                 
                     <ReactApexChart 
@@ -53,7 +53,7 @@ export const HistoryContent = (props) => {
           <div className="div-content">
                 <h1>{state.nombre}</h1>
                 <h3>Proyección próximos 10 años</h3>
-                <p>Obs. El grafico puede tardar en mostrarse</p>
+                <p>Obs. El grafico puede tardar en actualizarse</p>
                 <div className='row'>   
                 
                     <ReactApexChart 

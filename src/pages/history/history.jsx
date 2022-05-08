@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getExchanges } from '../../actions/indicadores'
 import { getIndicatorData, getHistoryData } from '../../actions/indicadores'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { formatearFecha } from '../../shared/funciones'
 import { HistoryContent } from './content'
+
 
 //https://www.npmjs.com/package/react-apexcharts
 //https://apexcharts.com/react-chart-demos/line-charts/zoomable-timeseries/
@@ -36,10 +37,26 @@ export const HistoryComponent = () => {
         let fecha = new Date()
         return fecha.getFullYear()
     })
-    const [ id ] = useState(params.id)
+    // eslint-disable-next-line
+    const [ id, setId ] = useState(params.id)
     const state = useSelector(state => state.detalleIndicadores.data)
     const stateDatosHistoricos = useSelector(state => state.indicadores.historyData)
     const dispatch = useDispatch()
+    const location = useLocation()
+
+
+    useEffect(() => {
+        let arrPath = location.pathname.split('history/')
+        if(arrPath[1]){
+            setId(arrPath[1])
+            setDatosEjeXGrafico1([])
+            setDatosEjeXGrafico2([])
+            setDatosEjeXGrafico3([])
+            setDatosEjeYGrafico1([])
+            setDatosEjeYGrafico2([])
+            setDatosEjeYGrafico3([])
+        }
+    },[dispatch, location])
 
 
     //Reseteando y obteniendo los datos iniciales
@@ -53,7 +70,7 @@ export const HistoryComponent = () => {
     useEffect(()=> {
         let datosEjeX = stateDatosHistoricos.filter(i => i.serie[0] !== undefined).map(i => formatearFecha((i.serie[0].fecha)))
         let datosEjeY = stateDatosHistoricos.filter(i => i.serie[0] !== undefined).map(i => i.serie[0].valor)
-        console.log('datosEjes', datosEjeX, datosEjeY)
+        //console.log('datosEjes', datosEjeX, datosEjeY)
         setDatosEjeXGrafico2(datosEjeX)
         setDatosEjeYGrafico2(datosEjeY)
     },[stateDatosHistoricos])
