@@ -1,0 +1,22 @@
+.container-div{
+    background: #282c34;
+}
+
+.content-div{
+    /*padding-top: 75px;*/
+    width: 99%;
+}
+
+.row{
+    justify-content: center;
+    width: 95%;
+}
+
+.apexcharts-menu,
+.apexcharts-tooltip{
+    color: black;
+}
+
+.apexcharts-svg{
+    background: #ffffff !important;
+}

@@ -3,12 +3,14 @@
 
 //REACT 18 - CONFIGURACIÓN DEL STORE Y REDUX -> https://redux.js.org/tutorials/essentials/part-2-app-structure
 import { configureStore } from '@reduxjs/toolkit'
-import bitcoin from './slices/indicadoresSlices'
+import indicadores from './slices/indicadoresSlices'
+import detalleIndicadores from './slices/indicatorDetailsSlice'
 
 
 export default configureStore({
     reducer:{
-        bitcoin,
+        indicadores,
+        detalleIndicadores
     },
     //middleware: getDefaultMiddleware => getDefaultMiddleware({nombreMiddleware})
 })
