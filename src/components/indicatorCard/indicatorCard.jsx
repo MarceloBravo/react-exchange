@@ -1,20 +1,14 @@
-import { unidadMedida } from '../../shared/constants'
 import { IndicatorCardContent } from './content'
+import { formatearFecha, formatearValor } from '../../shared/funciones'
+import { useNavigate } from 'react-router-dom'
 
 
 export const IndicatorCardComponent = (props) => {
-    const { fecha, nombre, unidad_medida, valor } = props
+    const { codigo, fecha, nombre, unidad_medida, valor } = props
+    const navigate = useNavigate()
 
-    const formatearFecha = (strFecha) => {
-        return strFecha ? strFecha.substr(0,10).split('-').reverse().join('-') : ''
-    } 
-
-    const formatearValor = (valor, unidad_medida) => {
-        return (unidad_medida === 'Pesos' ? unidadMedida.peso : (unidad_medida === 'Dólar' ? unidadMedida.dolar : '' )) + ' ' + formatearNumero(valor) + (unidad_medida === 'Porcentaje' ? '%' : '')
-    }
-
-    const formatearNumero = (numero) => {
-        return Number(numero).toLocaleString()
+    const cardClick = () => {
+        navigate('/history/'+codigo)
     }
 
     return (
@@ -25,6 +19,7 @@ export const IndicatorCardComponent = (props) => {
             unidad_medida={unidad_medida} 
             formatearValor={formatearValor} 
             formatearFecha={formatearFecha}
+            cardClick={cardClick}
         />
     )
 }

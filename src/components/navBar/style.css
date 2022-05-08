@@ -1,5 +1,14 @@
+.logo-react{
+    width: 30px;
+}
+
 .navbar{
     position: fixed !important;
     z-index: 100;
     width: 100%;
+}
+
+.shadow{
+    -webkit-box-shadow: 1px 1rem 1rem rgb(0 0 0 / 36%) !important; 
+    box-shadow: 1px 1rem 1rem rgb(0 0 0 / 36%) !important;
 }

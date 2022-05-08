@@ -1,3 +1,7 @@
+.card{
+    cursor: pointer;
+}
+
 .subtitle{
     color: #a5fb1b !important;
 }

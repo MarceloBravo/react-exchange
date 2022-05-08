@@ -6,7 +6,7 @@ import { HomeContent } from './content'
 
 export const HomeComponent = () => {
   const dispatch = useDispatch()
-  const state = useSelector(store => store.bitcoin.data )
+  const state = useSelector(store => store.indicadores.data )
   const [ datos, setDatos ] = useState(null)
 
     useEffect(() => {
@@ -21,7 +21,6 @@ export const HomeComponent = () => {
             arrDatos.push(state[k])
           }
         })
-        console.log('ARR DATOS',arrDatos)
         setDatos(arrDatos)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[state])

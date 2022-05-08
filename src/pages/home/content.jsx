@@ -15,6 +15,7 @@ export const HomeContent = (props) => {
             <div className='row'>
               {datos &&  datos.map((e, key) => 
                   <IndicatorCardComponent 
+                    codigo={e.codigo}
                     key={key}
                     fecha={ e.fecha } 
                     nombre={ e.nombre }

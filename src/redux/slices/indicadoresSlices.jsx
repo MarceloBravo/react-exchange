@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const bitcoinSlice = createSlice({
 
-    name: 'bitcoin',
+    name: 'indicadores',
 
     initialState: {data: {
                         version: "",
@@ -11,7 +11,8 @@ export const bitcoinSlice = createSlice({
                         nombre: "",
                         unidad_medida: "",
                         serie: []
-                    }
+                    },
+                    historyData: []
                 },
 
     reducers: {
@@ -20,9 +21,12 @@ export const bitcoinSlice = createSlice({
             state.data = action.payload
         }, 
 
+        setHistoryData: (state, action) => {
+            state.historyData = action.payload
+        }
     }
 })
 
-export const { setIndicadores } = bitcoinSlice.actions
+export const { setIndicadores, setHistoryData } = bitcoinSlice.actions
 
 export default bitcoinSlice.reducer

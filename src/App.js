@@ -1,6 +1,6 @@
 //import thunk from 'redux-thunk';  //Configuración para React 17
 import { HomeComponent } from './pages/home/home.jsx'
-import { HistoryUFComponent } from './pages/historyUF/historyuF.jsx'
+import { HistoryComponent } from './pages/history/history.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import store from './redux';
 import { Provider } from 'react-redux';
@@ -20,7 +20,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<HomeComponent/>}></Route>
-            <Route exact path="/historyuf" element={<HistoryUFComponent/>}></Route>
+            <Route exact path="/history/:id" element={<HistoryComponent/>}></Route>
           </Routes>
         </BrowserRouter>
       </div>
