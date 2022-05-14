@@ -22,3 +22,4 @@
   Obs.:  
   - La aplicación corre bajo node versión 16.14.0
   - La aplicación fue creada con REACT 18
+  - La aplicación en funcionamiento se puede ver en https://exchange-tracker-mab.netlify.app/
